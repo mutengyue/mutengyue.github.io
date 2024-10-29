@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git&amp;markdown学习记录（一） | MTY&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Git" />
+  
+  
+  
+  
+  <meta name="description" content="大一刚入学，在学校焦糖工作室招新马拉松中，写下的第一篇markdown学习笔记。由于系统设置问题，并未成功完成git与GitHub建立远程链接，但是，从中积累通过markdown写作，并复盘操作，在诸多bug中找到解决路径的经验。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git&amp;markdown学习记录（一）">
+<meta property="og:url" content="http://example.com/2022/09/09/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E9%93%BE%E6%8E%A5/index.html">
+<meta property="og:site_name" content="MTY&#39;s Blog">
+<meta property="og:description" content="大一刚入学，在学校焦糖工作室招新马拉松中，写下的第一篇markdown学习笔记。由于系统设置问题，并未成功完成git与GitHub建立远程链接，但是，从中积累通过markdown写作，并复盘操作，在诸多bug中找到解决路径的经验。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-09T09:35:03.000Z">
+<meta property="article:modified_time" content="2024-10-29T09:38:32.761Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MTY&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="MTY&#39;s Blog" rel="home"> MTY&#39;s Blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-远程仓库链接" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      git&amp;markdown学习记录（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/09/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E9%93%BE%E6%8E%A5/" class="article-date">
+	  <time datetime="2022-09-09T09:35:03.000Z" itemprop="datePublished">九月 9, 2022</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大一刚入学，在学校焦糖工作室招新马拉松中，写下的第一篇markdown学习笔记。由于系统设置问题，并未成功完成git与GitHub建立远程链接，但是，从中积累通过markdown写作，并复盘操作，在诸多bug中找到解决路径的经验。</p>
+<span id="more"></span>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>安装git是我遇见的第一个槛，打得开官网却打不开下载页面。我尝试以下方法解决：</p>
+<h3 id="1、换个浏览器"><a href="#1、换个浏览器" class="headerlink" title="1、换个浏览器"></a>1、换个浏览器</h3><p>虽然现在想起来这个办法有点傻，但也不失为一种思路，而且在科普题目一中，就提到了不同的搜索引擎。所以，我舍弃了Microsoft Edge，短暂投入chorme怀抱。可事实告诉我，浏览器不是原罪。</p>
+<h3 id="2、翻墙"><a href="#2、翻墙" class="headerlink" title="2、翻墙"></a>2、翻墙</h3><p>翻墙是我的室友从9月6日一早就在做，做了一大半天的事儿。所以，我不用搜索，我就知道，翻墙能解决问题。However,翻墙教程千千万，翻墙路径真麻烦，更何况，翻墙违法。Then，<del>怕网警</del>（怕麻烦且贫穷）的我，收回了翻墙的心。（但是如果后续还要使用像GitHub这样的外网，翻墙可能才是最简单的通法吧）</p>
+<h3 id="3、发现核心问题：打开GitHub网站"><a href="#3、发现核心问题：打开GitHub网站" class="headerlink" title="3、发现核心问题：打开GitHub网站"></a>3、发现核心问题：打开GitHub网站</h3><p>直接搜索git下载，似乎没有多的解决方案了。However，观察我无法打开的下载页面，页面标签上赫然写着一个熟悉的名字——GitHub。所以，再次搜索打开GitHub，解决方法多了起来。</p>
+<h2 id="快速打开GitHub"><a href="#快速打开GitHub" class="headerlink" title="快速打开GitHub"></a>快速打开GitHub</h2><p>网上的途径千千万，真正能用的才是好方法。原来不是我打不开这个网站，只是他的响应速度太慢了。</p>
+<h3 id="1、修改host"><a href="#1、修改host" class="headerlink" title="1、修改host"></a>1、修改host</h3><p>这是知乎上找到的方法，大概途径是，先用IP地址查找网页，查找GitHub网站的IP地址，然后在Windows&gt;System32&gt;drivers&gt;etc&gt;hosts中把查到的IP地址用一定格式搞上去，然后再通过cmd刷新DNS解决问题。</p>
+<p>想法很不错，可我没有更改C盘此文件的权限。这时，我想起假期看C语言网课时，老师提到的软件——notepad++。当时使用是为了有权限修改VS的源文件，使scanf函数不报错。（我懒，所以当时采用了弹幕的方法，先另存为到桌面，保存后再重新将文件拖回原位置替换）</p>
+<p>先用另存为法更改hosts文件，好家伙，用记事本方式打开，另存为后也变成了txt文件。</p>
+<p>再下notepad++，官网也是外网，打不开。于是在CSDN上找到了大佬分享的网盘文件，快乐下载。</p>
+<p>当我志得意满的完成了此方法的所有步骤后，GitHub还是打不开。🙂真好。。。</p>
+<h3 id="2、加速器"><a href="#2、加速器" class="headerlink" title="2、加速器"></a>2、加速器</h3><p>知乎靠不住，B站大学应该能顶了吧？</p>
+<h4 id="dev-sidecar"><a href="#dev-sidecar" class="headerlink" title="dev-sidecar"></a>dev-sidecar</h4><p>跟着标题党学教程，《如何快速打开GitHub网站？30秒教你快速解决》。确实，他用了30s解决问题，但是，我要先打开gitee网站，注册，搜索，下载加速器……ok,fine,当我一步一步照做之后，我发现我居然搞不懂他是怎么一下子就下载下来的？！</p>
+<p>在哪里跌倒就要在哪里躺下，我选择换一个教程。</p>
+<h4 id="steam"><a href="#steam" class="headerlink" title="steam++"></a>steam++</h4><p>换一个加速器，就好多了。在UP推荐的两个兼职加速器UU加速器和steam++里，我果断选择了可能被拦截的steam++，<del>名字好听</del>，不用天天更新，界面清爽，操作简便🙂。打开加速器，GitHub正确访问！！！</p>
+<h2 id="注册GitHub，安装git-2，创建版本库"><a href="#注册GitHub，安装git-2，创建版本库" class="headerlink" title="注册GitHub，安装git 2，创建版本库"></a>注册GitHub，安装git 2，创建版本库</h2><p>在打开加速器的情况下，一切都是那么水到渠成。</p>
+<h2 id="学习markdown文件的创建及书写"><a href="#学习markdown文件的创建及书写" class="headerlink" title="学习markdown文件的创建及书写"></a>学习markdown文件的创建及书写</h2><p>在git教程里有这样一句话：“建议你下载Visual Studio Code代替记事本。”哇哦~原来，我的下载VS时顺手下载的VScode是这么用的。原谅我迫不及待的开始学习VScode markdown的用法，同时也试验git管理。</p>
+<p>这第一篇学习记录，也就是我的VScode markdown试验结果。</p>
+<h2 id="使用git管理markdown文件"><a href="#使用git管理markdown文件" class="headerlink" title="使用git管理markdown文件"></a>使用git管理markdown文件</h2><p>在反复试探怎么使用GitHub搭建图床的过程中，我终于意识到，我的repositories并没有配置成功。在执行’git remote add origin’后，git无报错。下一步，git push却会反复报错：error:src refspec main dode not match any<br>error:failed to push some refs to github.com:Cynthia1379&#x2F;jotang.git</p>
+<h3 id="1、检验操作步骤问题"><a href="#1、检验操作步骤问题" class="headerlink" title="1、检验操作步骤问题"></a>1、检验操作步骤问题</h3><p>我学习删去了原来的“焦糖招新”repository，和本地隐藏的git文件，严格按照教程，重新操作。虽然与教程上GitHub的操作界面有些不同，但也确认了大的步骤没有问题，问题出现在一些细节上。</p>
+<h3 id="2、解决“fail-to-push”报错"><a href="#2、解决“fail-to-push”报错" class="headerlink" title="2、解决“fail to push”报错"></a>2、解决“fail to push”报错</h3><p>在CSDN论坛中，找到了相同报错的解决方案，输入“git pull origin master”进行同步。然后，又出现了新的报错。秉承着刨根问底的精神，继续搜索新的报错：“Could not read from remote repository””please make sure you have the correct access rights and the repository exists”</p>
+<p>得到的解答如下：原因一，git仓库的用户信息和本地的用户信息不匹配；原因二，客户端与服务端未生成 ssh key；原因三，客户端与服务端的ssh key不匹配；原因四，本地的hosts文件中没有配置IP地址和主机名的映射关系导致本地DNS无法解析出现该问题。</p>
+<p> 原因一，将仓库用户名改为本地用户名。改后再次尝试，失败。</p>
+<p> 原因二三，讲道理，我觉得不应该是这两个原因，然而由于提供的解决步骤（重新生成ssh密匙）中，加入了新的步骤，将SSH key添加到ssh-agent，我还是浅浅的试了一下，用’ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>‘检验，弹出语句与成功界面不符。</p>
+<p> 原因四，发帖人对此方法的描述模糊不清。反复搜索后，未果。</p>
+<h3 id="3、解决”Please-make-sure-you-have-the-correct-access-rights”"><a href="#3、解决”Please-make-sure-you-have-the-correct-access-rights”" class="headerlink" title="3、解决”Please make sure you have the correct access rights”"></a>3、解决”Please make sure you have the correct access rights”</h3><p>在删除了.ssh文件下known_hosts后，再重新连接SSH密匙。别人输入“ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a>”后输入yes回车，问题解决。我完成操作后git错乱，跳出一长串y，光标不停左右横条。🙂，小问题。</p>
+<h3 id="4、观察，陷入僵局"><a href="#4、观察，陷入僵局" class="headerlink" title="4、观察，陷入僵局"></a>4、观察，陷入僵局</h3><p>当我和git的博弈陷入僵局之后，我又再次重复了一遍我能找到的解决步骤。发现了一些隐藏的问题：诸如由于多次重复操作，git连接的repository还是之前被删了的那一个。</p>
+<h3 id="5、写markdown整理思路，找到盲点"><a href="#5、写markdown整理思路，找到盲点" class="headerlink" title="5、写markdown整理思路，找到盲点"></a>5、写markdown整理思路，找到盲点</h3><p>在卡住之后，想到可以先把问题记录下来，写markdown梳理思路。以下是发现的问题：</p>
+<p>1、在查找资料时，思维太散。为解决问题一，往往只打开一个网页，发现问题2就立刻往下思考，对问题1反而没有进行深挖；</p>
+<p>2、在查找资料时，没有逻辑。直接忘记或者忽略了最开始还有另外一个报错。’’error:failed to push some refs to github.com:Cynthia1379&#x2F;jotang.git’’</p>
+<p>3、没有及时整理，在写markdown时狼狈的翻找浏览器历史记录来梳理思路，浪费了大量时间。</p>
+<p>4、（补充）在查找解决方法时，只按部就班解决问题，没有了解每个语句的含义和本质。</p>
+<p>解决方案：最简单的，做任务先建markdown，先梳理记录，再往后执行操作。</p>
+<h3 id="6、解决最初的另一个报错"><a href="#6、解决最初的另一个报错" class="headerlink" title="6、解决最初的另一个报错"></a>6、解决最初的另一个报错</h3><p>1、发现有可能是因为本地仓库分支和GitHub仓库分支名称不同。给本地git仓库更改分支名称后，仍然不行。</p>
+<p>2、可能因为git本地仓库是空仓库，再次提交文件确认仓库非空后，还是不可以。报错相同。</p>
+<p>3.仍然可能是分支问题：没有发现main分支，需要先切换到main分支。先commit，再branch，然后checkout，最后，git push 的时候报错变了😀，变成了“Could not read from remote repository”“please make sure you have the correct access rights and the repository exists”🙂</p>
+<h3 id="7、回到问题3-又一次找到核心问题"><a href="#7、回到问题3-又一次找到核心问题" class="headerlink" title="7、回到问题3\又一次找到核心问题"></a>7、回到问题3\又一次找到核心问题</h3><p>重新仔细阅读了一些解决方法之后，我get到了ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;</a>语句的含义——配置ssh，在此基础上，我又一次找到了问题的核心：kex_exchange_identification: Connection closed by remote host. Connection closed by……</p>
+<h3 id="8、搜索核心问题，推进解法"><a href="#8、搜索核心问题，推进解法" class="headerlink" title="8、搜索核心问题，推进解法"></a>8、搜索核心问题，推进解法</h3><p>1、在查找”kex-exchange……“语句时，我从CSDN跳转至StackOverflow找到了解法，采用sshd -t debug，然后出现新的语句sshd:no hostkeys available – exiting</p>
+<p>2、解决ssh启动错误：根据网上的解决方法，先输入ssh-keygen -A，再输入&#x2F;etc&#x2F;init.d&#x2F;ssh start，中间发现问题，找不到对应文件，然后再根据指令一下达后的反馈文字，找到本电脑中的文件地址”&#x2F;etc&#x2F;ssh“，成功完成指令，再运行”ssh -t”似乎也不再出现问题。然而，在尝试git push -u……时，还是不可以🙂</p>
+<p>3、回到上一级问题kex-exchange……，按网上方法用ssh -v <username>@<password>来debug，然后，出现了问题bash:syntax error near unexpected token ‘newline’，再次搜索，发现不能使用尖括号输入ssh -v 语句，去掉尖括号后重试，得到debuge1：reading configuration data &#x2F;etc&#x2F;ssh&#x2F;ssh_config  Could not resolve hostname password</p>
+<p>4.继续查找问题。发现此时网络中的解决方案要么是已经尝试过的，要么语义不明，指代不清，要么货不对板，没有参考价值。</p>
+<h3 id="9、暂时放弃😭"><a href="#9、暂时放弃😭" class="headerlink" title="9、暂时放弃😭"></a>9、暂时放弃😭</h3><p>至此，我选择暂时放弃GitHub，尝试使用gitee，毕竟，PS和XD的试用期不等人，马拉松的期限也不等人😭</p>
+<h3 id="10、再次尝试"><a href="#10、再次尝试" class="headerlink" title="10、再次尝试"></a>10、再次尝试</h3><p>作为一个ddl人，在10月13日听说我的舍友们把GitHub都配置成功了，我，emm。。。ddl人绝不认输！</p>
+<p>1.再次搜索教程，卸载后重新下载git；</p>
+<p>2.进入GitHub，重新配置ssh keys；</p>
+<p>3.新建远程与本地仓库；</p>
+<p>4.向本地仓库提交文件；</p>
+<p>5.卡在了提交这一步，报错内容大意为无法连接到远程仓库。<br>无法连接的原因：无法读取远程仓库，连接被端口关闭。。。</p>
+<p>6.我又又又找到了新的可能的失败原因：端口占用问题。打开cmd，查询端口，找到占用软件，尝试停用。🙂，占用22号端口的软件是steam++呢，尝试关闭端口也无法关闭，直接关闭steam++，端口无占用软件，但是GitHub都无法打开🙂。<br>我浅问了我的室友采用的解决方案：一个是直接VPN翻墙，一个是连接手机热点就能流畅登录github。</p>
+<p>7.我谢谢你，GitHub🙂</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/12/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          虚拟机搭建
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-number">1.</span> <span class="nav-text">安装git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%8D%A2%E4%B8%AA%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1、换个浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%BF%BB%E5%A2%99"><span class="nav-number">1.2.</span> <span class="nav-text">2、翻墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%91%E7%8E%B0%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98%EF%BC%9A%E6%89%93%E5%BC%80GitHub%E7%BD%91%E7%AB%99"><span class="nav-number">1.3.</span> <span class="nav-text">3、发现核心问题：打开GitHub网站</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80GitHub"><span class="nav-number">2.</span> <span class="nav-text">快速打开GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BF%AE%E6%94%B9host"><span class="nav-number">2.1.</span> <span class="nav-text">1、修改host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%8A%A0%E9%80%9F%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2、加速器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dev-sidecar"><span class="nav-number">2.2.1.</span> <span class="nav-text">dev-sidecar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#steam"><span class="nav-number">2.2.2.</span> <span class="nav-text">steam++</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CGitHub%EF%BC%8C%E5%AE%89%E8%A3%85git-2%EF%BC%8C%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">注册GitHub，安装git 2，创建版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0markdown%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%B9%A6%E5%86%99"><span class="nav-number">4.</span> <span class="nav-text">学习markdown文件的创建及书写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8git%E7%AE%A1%E7%90%86markdown%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">使用git管理markdown文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%A3%80%E9%AA%8C%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text">1、检验操作步骤问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%A7%A3%E5%86%B3%E2%80%9Cfail-to-push%E2%80%9D%E6%8A%A5%E9%94%99"><span class="nav-number">5.2.</span> <span class="nav-text">2、解决“fail to push”报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E8%A7%A3%E5%86%B3%E2%80%9DPlease-make-sure-you-have-the-correct-access-rights%E2%80%9D"><span class="nav-number">5.3.</span> <span class="nav-text">3、解决”Please make sure you have the correct access rights”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E8%A7%82%E5%AF%9F%EF%BC%8C%E9%99%B7%E5%85%A5%E5%83%B5%E5%B1%80"><span class="nav-number">5.4.</span> <span class="nav-text">4、观察，陷入僵局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%86%99markdown%E6%95%B4%E7%90%86%E6%80%9D%E8%B7%AF%EF%BC%8C%E6%89%BE%E5%88%B0%E7%9B%B2%E7%82%B9"><span class="nav-number">5.5.</span> <span class="nav-text">5、写markdown整理思路，找到盲点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E8%A7%A3%E5%86%B3%E6%9C%80%E5%88%9D%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%8A%A5%E9%94%99"><span class="nav-number">5.6.</span> <span class="nav-text">6、解决最初的另一个报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%9B%9E%E5%88%B0%E9%97%AE%E9%A2%983-%E5%8F%88%E4%B8%80%E6%AC%A1%E6%89%BE%E5%88%B0%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98"><span class="nav-number">5.7.</span> <span class="nav-text">7、回到问题3\又一次找到核心问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E6%90%9C%E7%B4%A2%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98%EF%BC%8C%E6%8E%A8%E8%BF%9B%E8%A7%A3%E6%B3%95"><span class="nav-number">5.8.</span> <span class="nav-text">8、搜索核心问题，推进解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E6%9A%82%E6%97%B6%E6%94%BE%E5%BC%83%F0%9F%98%AD"><span class="nav-number">5.9.</span> <span class="nav-text">9、暂时放弃😭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95"><span class="nav-number">5.10.</span> <span class="nav-text">10、再次尝试</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2024 MTY&#39;s Blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
