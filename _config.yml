@@ -104,5 +104,5 @@ theme: hipaper
 deploy:
   type: git
   repository: git@github.com:Cynthia1379/Cynthia1379.github.io.git
-  branch: gh-pages
+  branch: main
   
