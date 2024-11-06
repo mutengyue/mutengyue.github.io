@@ -46,7 +46,8 @@ jobs:
         run: |
           hexo clean  # Clean previous builds
           hexo generate  # Generate static files
-
+          hexo deploy  # Deploy to GitHub Pages
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
