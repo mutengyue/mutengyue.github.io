@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Web前端学习笔记 | MTY&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Js学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前端学习笔记">
+<meta property="og:url" content="https://cynthia1379.github.io/2024/11/07/Js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="MTY&#39;s Blog">
+<meta property="og:description" content="Js学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-07T02:26:02.000Z">
+<meta property="article:modified_time" content="2024-11-07T17:21:43.427Z">
+<meta property="article:author" content="MTY">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MTY&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="MTY&#39;s Blog" rel="home"> MTY&#39;s Blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Js学习笔记" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Web前端学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/11/07/Js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2024-11-07T02:26:02.000Z" itemprop="datePublished">十一月 7, 2024</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Js学习笔记</p>
+<span id="more"></span>
+<h1 id="JS系列"><a href="#JS系列" class="headerlink" title="JS系列"></a>JS系列</h1><h2 id="说说JS中的数据类型？存储上的差别？"><a href="#说说JS中的数据类型？存储上的差别？" class="headerlink" title="说说JS中的数据类型？存储上的差别？"></a>说说JS中的数据类型？存储上的差别？</h2><p>JS中数据类型分为两大类，基本类型与引用类型，他们间最大的区别是存储上的差别。</p>
+<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><ul>
+<li>数值型：Number</li>
+<li>字符串型：String</li>
+<li>布尔类型：Boolen</li>
+<li>空类型:null</li>
+<li>undefined类型:undefined</li>
+<li>symbol类型</li>
+</ul>
+<h4 id="数值型"><a href="#数值型" class="headerlink" title="数值型"></a>数值型</h4><p>可以设置为二进制（0b开头）、十进制、八进制（0开头）、十六进制（0x开头）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> num2 = <span class="number">0b1010</span>; <span class="comment">// 二进制</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="number">0o12</span>; <span class="comment">// 八进制</span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="number">0x1a</span>; <span class="comment">// 十六进制</span></span><br></pre></td></tr></table></figure>
+<p>浮点类型可通过科学计数法表示。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num5 = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">var</span> num6 = <span class="number">1.5e2</span>; <span class="comment">// 1.5 * 10^2</span></span><br></pre></td></tr></table></figure>
+<p>此类型存在一个特殊数值NAN，表示“非数值”，即该结果本该是数值类型，但出现错误，无法表示（非抛出错误）。</p>
+<h4 id="字符串型"><a href="#字符串型" class="headerlink" title="字符串型"></a>字符串型</h4><p>用单引号或双引号括起来的任意文本，一旦创建，不可改变。后续所有更改都是创建副本，在副本基础上进行操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">&quot;world&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>只有两个值，true和false。</p>
+<h4 id="空类型"><a href="#空类型" class="headerlink" title="空类型"></a>空类型</h4><p>表示一个空值，null。是一个对象类型，可以赋值给变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h4><p>当使用 var或 let声明了变量但没有初始化时，就相当于给变量赋予了 undefined值，是一个未定义类型。但和变量未声明仍有明显区别。</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
+<li>对象 Object</li>
+<li>数组 Array</li>
+<li>函数 Function</li>
+</ul>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><h5 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title class_">Person</span> = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Tom&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">sayHello</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello,&#x27;</span>+ <span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="构造函数法"><a href="#构造函数法" class="headerlink" title="构造函数法"></a>构造函数法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Tom&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">20</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello,&quot;</span>+<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="object-create-方法"><a href="#object-create-方法" class="headerlink" title="object.create()方法"></a>object.create()方法</h5><p>Object.create(proto) 调用时，会创建一个新对象，并将 proto 作为新对象的原型。新对象会继承 proto 中的属性和方法。</p>
+<p>原型链： 新对象与其原型之间建立了原型链关系。当对新对象的属性进行查找时，JavaScript 会首先检查该对象自身是否拥有该属性。如果没有，JavaScript 会沿着原型链向上查找，即查找其原型对象及其原型的原型，直到找到该属性或到达原型链的顶端（Object.prototype）为止。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title class_">Person</span>  = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Tom&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">sayHello</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello,&#x27;</span>+ <span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="title class_">Person</span>);</span><br><span class="line">person1.<span class="property">name</span> = <span class="string">&#x27;Jerry&#x27;</span>;</span><br><span class="line">person1.<span class="title function_">sayHello</span>(); <span class="comment">// Hello, Jerry</span></span><br></pre></td></tr></table></figure>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><p>数组中每个槽位可以存储任意类型的数据。并且，数组也是动态大小的，会随着数据添加而自动增长。创建数组本质就是创建对象，对象的属性可以通过’[]’访问。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [];</span><br></pre></td></tr></table></figure>
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><h5 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h5><p>function greet(){<br>    console.log(“Hello, world!”);<br>    }</p>
+<h5 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h5><p>let greet &#x3D; function(){<br>    console.log(“Hello,world!”);<br>}</p>
+<h5 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h5><p>const greet &#x3D; () &#x3D;&gt; {<br>    console.log(“Hello, world!”);<br>}</p>
+<h3 id="存储区别"><a href="#存储区别" class="headerlink" title="存储区别"></a>存储区别</h3><p>基本类型存储在栈区。<br>引用类型数据存放在堆中，每个堆内存对象都有对应的引用地址指向它，引用地址存放在栈中。<br>obj1是一个引用类型，在赋值操作过程汇总，实际是将堆内存对象在栈内存的引用地址复制了一份给了obj2，实际上他们共同指向了同一个堆内存对象，所以更改obj2会对obj1产生影响。</p>
+<h2 id="数组的常用方法有那些？"><a href="#数组的常用方法有那些？" class="headerlink" title="数组的常用方法有那些？"></a>数组的常用方法有那些？</h2><h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><h5 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h5><p>接收任意数量参数，将其添加至数组末尾，返回数组最新长度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">push</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h5><p>接收任意数量参数，将其添加至数组开头，返回数组最新长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">unshift</span>(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h5><p>接收三个参数（操作开始的位置，删除数据的个数，增加的数据），返回删除的数据组成的新数组，本质上是改数组内容，但也可单独用于增加或删除。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> change = arr.<span class="title function_">splice</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>);<span class="comment">//arr = [a,B,C,d]</span></span><br><span class="line"><span class="keyword">let</span> add = arr.<span class="title function_">splice</span>(<span class="number">1</span>,<span class="number">0</span>,<span class="string">&#x27;A&#x27;</span>);<span class="comment">//arr = [a,A,B,C,d]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(change);<span class="comment">//b,c</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(add);<span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<h5 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h5><p>创建一个当前数组的副本，将传入参数增加至副本末尾，不影响原数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors = [<span class="string">&quot;red&quot;</span>, <span class="string">&quot;green&quot;</span>, <span class="string">&quot;blue&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> colors2 = colors.<span class="title function_">concat</span>(<span class="string">&quot;yellow&quot;</span>, [<span class="string">&quot;black&quot;</span>, <span class="string">&quot;brown&quot;</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(colors); <span class="comment">// [&quot;red&quot;, &quot;green&quot;,&quot;blue&quot;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(colors2); <span class="comment">// [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;black&quot;, &quot;brown&quot;]</span></span><br></pre></td></tr></table></figure>
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><h5 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h5><p>删除数组最后一项，返回被删除项。</p>
+<h5 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h5><p>删除数组第一项，返回被删除项。</p>
+<h5 id="splice-1"><a href="#splice-1" class="headerlink" title="splice()"></a>splice()</h5><p>同上。</p>
+<h5 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h5><p>Array.prototype.slice 方法用于提取数组的一部分，并返回一个新数组。它的基本语法是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.slice(start, end)</span><br></pre></td></tr></table></figure>
+<p>start：提取的开始索引（包含该索引的元素）。如果为负数，则表示从数组尾部开始计数。<br>end：提取的结束索引（不包含该索引的元素）。如果省略，则提取到数组的末尾。如果为负数，则表示从数组尾部开始计数。</p>
+<h4 id="改-splice"><a href="#改-splice" class="headerlink" title="改 splice"></a>改 splice</h4><h4 id="查"><a href="#查" class="headerlink" title="查"></a>查</h4><h5 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h5><p>查找是否包含传入参数项，返回第一个找到的参数的位置，没找到返回-1.</p>
+<h5 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h5><p>查找是否包含传入参数项，返回布尔值。</p>
+<h5 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h5><p>返回第一个匹配的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;Matt&quot;</span>,</span><br><span class="line">        <span class="attr">age</span>: <span class="number">27</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;Nicholas&quot;</span>,</span><br><span class="line">        <span class="attr">age</span>: <span class="number">29</span></span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line">people.<span class="title function_">find</span>(<span class="function">(<span class="params">element, index, array</span>) =&gt;</span> element.<span class="property">age</span> &lt; <span class="number">28</span>) <span class="comment">// // &#123;name: &quot;Matt&quot;, age: 27&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="排序方法"><a href="#排序方法" class="headerlink" title="排序方法"></a>排序方法</h3><h4 id="reserve"><a href="#reserve" class="headerlink" title="reserve"></a>reserve</h4><p>将数组元素顺序反转。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> values = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">values.<span class="title function_">reverse</span>();</span><br><span class="line"><span class="title function_">alert</span>(values); <span class="comment">// 5,4,3,2,1</span></span><br></pre></td></tr></table></figure>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p>接受一个比较函数，用于判断哪个值应该排在前面，返回经过排序后的数组。默认是根据字符串Unicode编码（字母字典顺序）进行排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">10</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>];</span><br><span class="line">numbers.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers); <span class="comment">// 输出: [1, 2, 5, 9, 10]</span></span><br></pre></td></tr></table></figure>
+<p>a-b，从小到大顺序排序，b-a，从大到小降序排序。返回值负数：第一个参数排在第二个参数前；返回值正数：第一个参数排在第二个参数后；</p>
+<h3 id="转换方法-join"><a href="#转换方法-join" class="headerlink" title="转换方法 join()"></a>转换方法 join()</h3><p>接受一个参数，即字符串分割符，返回包含所有项的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors = [<span class="string">&quot;red&quot;</span>, <span class="string">&quot;green&quot;</span>, <span class="string">&quot;blue&quot;</span>];</span><br><span class="line"><span class="title function_">alert</span>(colors.<span class="title function_">join</span>(<span class="string">&quot;,&quot;</span>)); <span class="comment">// red,green,blue</span></span><br><span class="line"><span class="title function_">alert</span>(colors.<span class="title function_">join</span>(<span class="string">&quot;||&quot;</span>)); <span class="comment">// red||green||blue</span></span><br></pre></td></tr></table></figure>
+<h3 id="迭代方法（都不改变原数组）"><a href="#迭代方法（都不改变原数组）" class="headerlink" title="迭代方法（都不改变原数组）"></a>迭代方法（都不改变原数组）</h3><h4 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h4><p>传入一个函数，将数组每一项执行此函数，有一项返回true，此方法返回true。</p>
+<h4 id="every"><a href="#every" class="headerlink" title="every"></a>every</h4><p>传入一个函数，将数组每一项执行此函数，每一项返回true，此方法返回true。</p>
+<h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><p>对数组每一项都执行传入的函数，没有返回值。</p>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><p>对数组每一项都执行传入的函数，函数返回为true的项组成新数组返回。</p>
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p>对函数的每一项都执行传入的函数，每次函数调用的结果组成新数组返回。</p>
+<h2 id="JS字符串的常用方法有那些？"><a href="#JS字符串的常用方法有那些？" class="headerlink" title="JS字符串的常用方法有那些？"></a>JS字符串的常用方法有那些？</h2><h3 id="操作方法-1"><a href="#操作方法-1" class="headerlink" title="操作方法"></a>操作方法</h3><h4 id="增-1"><a href="#增-1" class="headerlink" title="增"></a>增</h4><h4 id="删-1"><a href="#删-1" class="headerlink" title="删"></a>删</h4><h4 id="查-1"><a href="#查-1" class="headerlink" title="查"></a>查</h4><h4 id="改"><a href="#改" class="headerlink" title="改"></a>改</h4><h3 id="转换方法-split"><a href="#转换方法-split" class="headerlink" title="转换方法 split"></a>转换方法 split</h3><h3 id="模板匹配方法"><a href="#模板匹配方法" class="headerlink" title="模板匹配方法"></a>模板匹配方法</h3><h2 id="谈谈JS中的类型转换机制？"><a href="#谈谈JS中的类型转换机制？" class="headerlink" title="谈谈JS中的类型转换机制？"></a>谈谈JS中的类型转换机制？</h2><h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><h3 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h3><h2 id="和-的区别？"><a href="#和-的区别？" class="headerlink" title="&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的区别？"></a>&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的区别？</h2><h3 id="等于操作符"><a href="#等于操作符" class="headerlink" title="等于操作符"></a>等于操作符</h3><h3 id="全等操作符"><a href="#全等操作符" class="headerlink" title="全等操作符"></a>全等操作符</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><h2 id="浅拷贝深拷贝的区别？如何实现一个深拷贝？"><a href="#浅拷贝深拷贝的区别？如何实现一个深拷贝？" class="headerlink" title="浅拷贝深拷贝的区别？如何实现一个深拷贝？"></a>浅拷贝深拷贝的区别？如何实现一个深拷贝？</h2><h3 id="数据类型存储"><a href="#数据类型存储" class="headerlink" title="数据类型存储"></a>数据类型存储</h3><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><h3 id="区别-1"><a href="#区别-1" class="headerlink" title="区别"></a>区别</h3><h2 id="谈谈你对闭包的理解？闭包使用场景？"><a href="#谈谈你对闭包的理解？闭包使用场景？" class="headerlink" title="谈谈你对闭包的理解？闭包使用场景？"></a>谈谈你对闭包的理解？闭包使用场景？</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><h2 id="说说你对作用域链的理解"><a href="#说说你对作用域链的理解" class="headerlink" title="说说你对作用域链的理解"></a>说说你对作用域链的理解</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><h2 id="JS原型，原型链？有什么特点？"><a href="#JS原型，原型链？有什么特点？" class="headerlink" title="JS原型，原型链？有什么特点？"></a>JS原型，原型链？有什么特点？</h2><p>JS中，每一个对象都有一个原型’xxx.prototype’，每个对象都有一个方法’xxx.<em>proto</em>‘指向其构造函数的原型，由此构成原型链。当对象实例调用一个方法时，JavaScript 查找该方法时首先查看对象本身的属性，如果找不到，则会沿着原型链向上查找。</p>
+<h2 id="JS如何实现继承？"><a href="#JS如何实现继承？" class="headerlink" title="JS如何实现继承？"></a>JS如何实现继承？</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>继承（inheritance）是面向对象软件技术当中的一个概念。<br>如果一个类别B“继承自”另一个类别A，就把这个B称为“A的子类”，而把A称为“B的父类别”。例如父类车，子类轿车，货车。子类可以继承父类的一些属性和方法，也可重写或覆盖某些属性和方法。</p>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;tom&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">23</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sex</span> = <span class="string">&#x27;girl&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br></pre></td></tr></table></figure>
+<p>存在潜在问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line">s2 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br></pre></td></tr></table></figure>
+<p>s1，s2使用相同的一个原型对象，内存空间共享，改变s1，s2页发生变化。</p>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><p>借助call调用Parent函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Parent</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Parent</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>);<span class="comment">//这里的上下文this指Child</span></span><br><span class="line">    <span class="comment">//调用 Parent 构造函数，并将新创建的 Child 实例作为 this 传入，这样 name 和 age 属性就会被初始化到新实例中。</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sex</span> = <span class="string">&#x27;girl&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> child = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child.<span class="title function_">getName</span>());<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p>优化了原型链继承的弊端，但只能继承父类的实例属性和方法，不能继承原型属性或方法。</p>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>既使用原型链继承，又使用构造函数继承。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Parent</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>);</span><br><span class="line">    sex = <span class="string">&#x27;girl&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 为 Child3 设置原型为 Parent3 的实例</span></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br><span class="line"><span class="comment">// 手动设置构造器的指向，确保正确引用</span></span><br></pre></td></tr></table></figure>
+<p>Child实例既不互相影响，又能使用父类的原型属性和方法。</p>
+<h4 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h4><p>利用Object.create()实现继承，括号内传入参数新建的对象原型指向。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parent4 = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;name&quot;</span>,</span><br><span class="line">    <span class="attr">friends</span>: [<span class="string">&quot;p1&quot;</span>, <span class="string">&quot;p2&quot;</span>, <span class="string">&quot;p3&quot;</span>],</span><br><span class="line">    <span class="attr">getName</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> child1 = <span class="title class_">Object</span>.<span class="title function_">create</span>(parent4);<span class="comment">// 创建 person4，原型指向 parent4</span></span><br><span class="line">  <span class="keyword">let</span> child2 = <span class="title class_">Object</span>.<span class="title function_">create</span>(parent4);</span><br><span class="line">  person4.<span class="property">name</span> = <span class="string">&quot;tom&quot;</span>;</span><br><span class="line">  person4.<span class="property">friends</span>.<span class="title function_">push</span>(<span class="string">&quot;jerry&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><h4 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h4><h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><h2 id="谈谈对this的理解？"><a href="#谈谈对this的理解？" class="headerlink" title="谈谈对this的理解？"></a>谈谈对this的理解？</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><h3 id="绑定规则"><a href="#绑定规则" class="headerlink" title="绑定规则"></a>绑定规则</h3><h3 id="箭头函数-1"><a href="#箭头函数-1" class="headerlink" title="箭头函数"></a>箭头函数</h3><h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><h2 id="js中执行上下文和执行栈是什么？"><a href="#js中执行上下文和执行栈是什么？" class="headerlink" title="js中执行上下文和执行栈是什么？"></a>js中执行上下文和执行栈是什么？</h2><h2 id="说说js中的事件模型"><a href="#说说js中的事件模型" class="headerlink" title="说说js中的事件模型"></a>说说js中的事件模型</h2><h2 id="typeof-和-instanceof-的区别？"><a href="#typeof-和-instanceof-的区别？" class="headerlink" title="typeof 和 instanceof 的区别？"></a>typeof 和 instanceof 的区别？</h2>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/11/06/vue%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue框架学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS%E7%B3%BB%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">JS系列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4JS%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F%E5%AD%98%E5%82%A8%E4%B8%8A%E7%9A%84%E5%B7%AE%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">说说JS中的数据类型？存储上的差别？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%9E%8B"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">数值型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">字符串型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">空类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">undefined</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Object</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">对象字面量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%95"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">构造函数法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#object-create-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.1.3.</span> <span class="nav-text">object.create()方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">函数声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">函数表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.2.3.3.</span> <span class="nav-text">箭头函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.3.</span> <span class="nav-text">存储区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">数组的常用方法有那些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">增</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#push"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unshift"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">unshift()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#splice"><span class="nav-number">1.2.1.1.3.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#concat"><span class="nav-number">1.2.1.1.4.</span> <span class="nav-text">concat()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">删</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#pop"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shift"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">shift()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#splice-1"><span class="nav-number">1.2.1.2.3.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#slice"><span class="nav-number">1.2.1.2.4.</span> <span class="nav-text">slice()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B9-splice"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">改 splice</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">查</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#indexOf"><span class="nav-number">1.2.1.4.1.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#includes"><span class="nav-number">1.2.1.4.2.</span> <span class="nav-text">includes()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find"><span class="nav-number">1.2.1.4.3.</span> <span class="nav-text">find()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">排序方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reserve"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">reserve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">sort</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95-join"><span class="nav-number">1.2.3.</span> <span class="nav-text">转换方法 join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95%EF%BC%88%E9%83%BD%E4%B8%8D%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84%EF%BC%89"><span class="nav-number">1.2.4.</span> <span class="nav-text">迭代方法（都不改变原数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#some"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#every"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">every</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">map</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">JS字符串的常用方法有那些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E-1"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0-1"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5-1"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B9"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95-split"><span class="nav-number">1.3.2.</span> <span class="nav-text">转换方法 split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.3.</span> <span class="nav-text">模板匹配方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%88%E8%B0%88JS%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">谈谈JS中的类型转换机制？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.4.1.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.4.2.</span> <span class="nav-text">显式转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.5.1.</span> <span class="nav-text">等于操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.5.2.</span> <span class="nav-text">全等操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.5.3.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="nav-number">1.6.</span> <span class="nav-text">浅拷贝深拷贝的区别？如何实现一个深拷贝？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AD%98%E5%82%A8"><span class="nav-number">1.6.1.</span> <span class="nav-text">数据类型存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.6.2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.6.3.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-number">1.6.4.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F%E9%97%AD%E5%8C%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">1.7.</span> <span class="nav-text">谈谈你对闭包的理解？闭包使用场景？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.7.2.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.7.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.8.</span> <span class="nav-text">说说你对作用域链的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.8.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.8.2.</span> <span class="nav-text">词法作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="nav-number">1.8.3.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%8E%9F%E5%9E%8B%EF%BC%8C%E5%8E%9F%E5%9E%8B%E9%93%BE%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="nav-number">1.9.</span> <span class="nav-text">JS原型，原型链？有什么特点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">1.10.</span> <span class="nav-text">JS如何实现继承？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.10.1.</span> <span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">1.10.2.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.1.</span> <span class="nav-text">原型链继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.2.</span> <span class="nav-text">构造函数继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.3.</span> <span class="nav-text">组合继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E5%BC%8F%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E7%94%9F%E5%BC%8F%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E7%94%9F%E7%BB%84%E5%90%88%E5%BC%8F%E7%BB%A7%E6%89%BF"><span class="nav-number">1.10.2.6.</span> <span class="nav-text">寄生组合式继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="nav-number">1.10.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E5%AF%B9this%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="nav-number">1.11.</span> <span class="nav-text">谈谈对this的理解？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.11.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99"><span class="nav-number">1.11.2.</span> <span class="nav-text">绑定规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0-1"><span class="nav-number">1.11.3.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.11.4.</span> <span class="nav-text">优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E4%B8%AD%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E6%89%A7%E8%A1%8C%E6%A0%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.12.</span> <span class="nav-text">js中执行上下文和执行栈是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4js%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.13.</span> <span class="nav-text">说说js中的事件模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof-%E5%92%8C-instanceof-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.14.</span> <span class="nav-text">typeof 和 instanceof 的区别？</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2024 MTY&#39;s Blog All Rights Reserved.
+      </div>
+     
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
