@@ -11,23 +11,23 @@
   
   
   
-  <meta name="description" content="基于Node.js的静态博客生成器Hexo的使用方法">
+  <meta name="description" content="基于Node.js的静态博客生成器Hexo的使用方法，利用现有主题进行hexo博客搭建。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo个人博客">
+<meta property="og:title" content="hexo个人博客搭建">
 <meta property="og:url" content="https://cynthia1379.github.io/2024/10/29/hexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="MTY&#39;s Blog">
-<meta property="og:description" content="基于Node.js的静态博客生成器Hexo的使用方法">
+<meta property="og:description" content="基于Node.js的静态博客生成器Hexo的使用方法，利用现有主题进行hexo博客搭建。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/11/06/pAyijfA.png">
 <meta property="og:image" content="https://s21.ax1x.com/2024/11/06/pAsOfTx.png">
 <meta property="og:image" content="https://s21.ax1x.com/2024/11/06/pAyCrhn.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/11/06/pAyi9IJ.png">
 <meta property="article:published_time" content="2024-10-29T03:59:33.000Z">
-<meta property="article:modified_time" content="2024-11-06T14:49:35.430Z">
+<meta property="article:modified_time" content="2024-11-11T17:19:50.176Z">
 <meta property="article:author" content="MTY">
 <meta property="article:tag" content="node.js,hexo,博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s21.ax1x.com/2024/11/06/pAsOfTx.png">
-  
-    <link rel="alternate" href="/atom.xml" title="MTY&#39;s Blog" type="application/atom+xml">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/11/06/pAyijfA.png">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -96,6 +96,8 @@
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
                     
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/atom.xml"> <a class="" href="/atom.xml">rss</a> </li>
+                    
               </ul>
             </div>
           </nav>
@@ -118,7 +120,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      hexo个人博客
+      hexo个人博客搭建
     </h1>
   
 
@@ -132,7 +134,7 @@
 
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/">项目学习</a>
  
       
 	<span id="busuanzi_container_page_pv">
@@ -142,9 +144,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于Node.js的静态博客生成器Hexo的使用方法</p>
+        <p>基于Node.js的静态博客生成器Hexo的使用方法，利用现有主题进行hexo博客搭建。<br><img src="https://s21.ax1x.com/2024/11/06/pAyijfA.png"></p>
 <span id="more"></span>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="Node-js安装及环境配置"><a href="#Node-js安装及环境配置" class="headerlink" title="Node.js安装及环境配置"></a>Node.js安装及环境配置</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WHF__/article/details/129362462?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522E64443DD-883D-4391-9EBB-496F474BB45D%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=E64443DD-883D-4391-9EBB-496F474BB45D&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-129362462-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&spm=1018.2226.3001.4187">参考教程</a><br>安装Node.js，可以从<a target="_blank" rel="noopener" href="https://www.nodejs.com.cn/download.html">Node.js官网</a>下载对应版本的安装包进行安装。安装完成后，打开命令提示符，输入<code>node -v</code>命令，查看是否安装成功。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pAsOfTx"><img src="https://s21.ax1x.com/2024/11/06/pAsOfTx.png" alt="pAsOfTx.png"></a><br>并配置环境变量，在Node.js的安装目录下新建<node_global><node_cache>文件夹，将<node_global>文件夹添加到PATH环境变量中。参考教程中第五步安装淘宝镜像，可以提高下载速度，但无需配置。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="Node-js安装及环境配置"><a href="#Node-js安装及环境配置" class="headerlink" title="Node.js安装及环境配置"></a>Node.js安装及环境配置</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WHF__/article/details/129362462?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522E64443DD-883D-4391-9EBB-496F474BB45D%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=E64443DD-883D-4391-9EBB-496F474BB45D&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-129362462-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=nodejs%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&spm=1018.2226.3001.4187">参考教程</a><br>安装Node.js，可以从<a target="_blank" rel="noopener" href="https://www.nodejs.com.cn/download.html">Node.js官网</a>下载对应版本的安装包进行安装。安装完成后，打开命令提示符，输入<code>node -v</code>命令，查看是否安装成功。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pAsOfTx"><img src="https://s21.ax1x.com/2024/11/06/pAsOfTx.png"></a><br>并配置环境变量，在Node.js的安装目录下新建<node_global><node_cache>文件夹，将<node_global>文件夹添加到PATH环境变量中。参考教程中第五步安装淘宝镜像，可以提高下载速度，但无需配置。</p>
 <h3 id="Hexo安装及环境配置"><a href="#Hexo安装及环境配置" class="headerlink" title="Hexo安装及环境配置"></a>Hexo安装及环境配置</h3><p>在目标位置创建一个blog文件夹，并在该文件夹下打开命令提示符，输入<code>npm install hexo-cli -g</code>命令，安装Hexo。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>安装完成后，输入<code>hexo -v</code>命令，查看Hexo版本。</p>
@@ -201,14 +203,14 @@ _config.yml: 博客的配置文件
 <p>输入<code>hexo d</code>命令，部署静态页面到GitHub仓库，同时生成.deploy_git文件夹，该文件夹中存放的是部署到GitHub仓库所需的全部文件。虽然url大小写敏感，但在生成过程中仍有可能出现大小写不一致的情况，所以建议将url配置为全小写。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<h2 id="GitHub-Pages部署"><a href="#GitHub-Pages部署" class="headerlink" title="GitHub Pages部署"></a>GitHub Pages部署</h2><p>GitHub Pages页面设置位于GitHub仓库设置-pages设置下，配置过程可在actions中查看。注意pages设置中，source和branch的配置。页面配置成功后，出现蓝色方框内容。<br><a target="_blank" rel="noopener" href="https://s21.ax1x.com/2024/11/06/pAyi9IJ.png">pagesetting.png</a>](<a target="_blank" rel="noopener" href="https://imgse.com/i/pAyi9IJ">https://imgse.com/i/pAyi9IJ</a>)</p>
+<h2 id="GitHub-Pages部署"><a href="#GitHub-Pages部署" class="headerlink" title="GitHub Pages部署"></a>GitHub Pages部署</h2><p>GitHub Pages页面设置位于GitHub仓库设置-pages设置下，配置过程可在actions中查看。注意pages设置中，source和branch的配置。页面配置成功后，出现蓝色方框内容。<br><img src="https://s21.ax1x.com/2024/11/06/pAyi9IJ.png"><br>在次过程中，曾出现bug，无论如何<code>hexo d</code>，actions页面不显示，pages设置界面显示配置中，但时隔很久都没有动静。在翻遍了所有可能的GitHub设置，修订了无数次YAML配置文件url、deploy配置后，都没有办法，最终决定暴力通关。（虽然起因是想给GitHub账号改个用户名，显示无法更改，先是要求通过两重认证，后是海外手机号验证码验证）<br>重新用outlook邮箱注册GitHub账号，配置ssh连接，顺利<code>hexo d</code>🙂。</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/">项目学习</a>
 
       
   <span class="ico-tags"></span>
@@ -293,6 +295,8 @@ _config.yml: 博客的配置文件
     <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/atom.xml" class="mobile-nav-link">rss</a>
   
 </nav> -->
     <footer id="footer" class="site-footer">
