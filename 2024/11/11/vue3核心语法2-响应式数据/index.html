@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MTY&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="vue框架学习笔记第三篇，笔记内容基于B站课程vue3+TypeScript。本篇主要介绍通过ref与reactive创建响应式数据，同时借助computed计算属性，简化template代码块。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3核心语法2_响应式数据">
+<meta property="og:url" content="https://cynthia1379.github.io/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%952-%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="MTY&#39;s Blog">
+<meta property="og:description" content="vue框架学习笔记第三篇，笔记内容基于B站课程vue3+TypeScript。本篇主要介绍通过ref与reactive创建响应式数据，同时借助computed计算属性，简化template代码块。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-11T14:40:02.000Z">
+<meta property="article:modified_time" content="2024-11-11T16:32:46.542Z">
+<meta property="article:author" content="MTY">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MTY&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="MTY&#39;s Blog" rel="home"> MTY&#39;s Blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-vue3核心语法2-响应式数据" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      vue3核心语法2_响应式数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%952-%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE/" class="article-date">
+	  <time datetime="2024-11-11T14:40:02.000Z" itemprop="datePublished">十一月 11, 2024</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue框架学习笔记第三篇，笔记内容基于B站课程<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Za4y1r7KE?spm_id_from=333.788.videopod.episodes&vd_source=7e3ba4910e981ea38ba948d2c585f447&p=6">vue3+TypeScript</a>。<br>本篇主要介绍通过ref与reactive创建响应式数据，同时借助computed计算属性，简化template代码块。</p>
+<span id="more"></span>
+<h2 id="响应式数据"><a href="#响应式数据" class="headerlink" title="响应式数据"></a>响应式数据</h2><h3 id="ref创建-基本类型的响应式数据"><a href="#ref创建-基本类型的响应式数据" class="headerlink" title="ref创建_基本类型的响应式数据"></a>ref创建_基本类型的响应式数据</h3><p>你想让哪个数据是响应式，就用<code>ref</code>将数据包一下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ref&#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span><span class="comment">//需要先进行引用</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="title function_">ref</span> (<span class="string">&#x27;张三&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> age = <span class="title function_">ref</span>(<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<p><code>ref</code>本质是函数，将被包的数据变为对象，在js中操控其值时，需要使用<code>.value</code>，就算是引用类型也要<code>.value</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">changeName</span>(<span class="params"></span>)&#123;</span><br><span class="line">  name.<span class="property">value</span> = <span class="string">&#x27;王五&#x27;</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="reactive创建-对象类型的响应式数据"><a href="#reactive创建-对象类型的响应式数据" class="headerlink" title="reactive创建_对象类型的响应式数据"></a>reactive创建_对象类型的响应式数据</h3><p>只能定义对象类型的响应式数据，用<code>reactive</code>去包。<code>reactive</code>可以定义深层次数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class = &#x27;car&#x27;&gt;</span><br><span class="line">        &lt;h2&gt;游戏列表：</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li v-for=&quot;g in game&quot; :key = &#x27;g.id&#x27;&gt;&#123;&#123; g.gameName &#125;&#125;&lt;/li&gt;</span><br><span class="line">                &lt;!-- v-for --&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/h2&gt;</span><br><span class="line">        &lt;button @click=&quot;changeName&quot;&gt;修改游戏名称&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup name = &#x27;Person&#x27;&gt;</span><br><span class="line">    import &#123;reactive&#125; from &#x27;vue&#x27;;</span><br><span class="line">    let game =reactive( [&#123;id:801, gameName:&#x27;王者荣耀&#x27;&#125;,</span><br><span class="line">                &#123;id:802, gameName:&#x27;原神&#x27;&#125;,</span><br><span class="line">                &#123;id:803, gameName:&#x27;梦境侦探&#x27;&#125;])</span><br><span class="line">    function changeName()&#123;</span><br><span class="line">        game[0].gameName = &#x27;蛋仔派对&#x27;;//正确引用数组类型对象</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="ref创建-对象类型的响应式数据"><a href="#ref创建-对象类型的响应式数据" class="headerlink" title="ref创建_对象类型的响应式数据"></a>ref创建_对象类型的响应式数据</h3><p>表面上，是用<code>ref</code>定义了一个对象类型的响应式数据，但本质上，还是使用的<code>reactive</code>。<br>注意！！！使用ref定义的响应式数据，需要<code>.value</code>，可以使用插件添加 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> car = <span class="title function_">ref</span>(&#123;<span class="attr">brand</span>:<span class="string">&#x27;奔驰&#x27;</span>,<span class="attr">price</span>:<span class="number">100</span>&#125;)</span><br><span class="line"><span class="keyword">let</span> game = <span class="title function_">ref</span>([</span><br><span class="line">  &#123;<span class="attr">id</span>:alkjdnl01,<span class="attr">name</span>:<span class="string">&#x27;王者荣耀&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:alkjdnl01,<span class="attr">name</span>:<span class="string">&#x27;原神&#x27;</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">id</span>:alkjdnl01,<span class="attr">name</span>:<span class="string">&#x27;第五人格&#x27;</span>&#125;,</span><br><span class="line">])</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeData</span>(<span class="params"></span>)&#123;</span><br><span class="line">  car.<span class="property">value</span>.<span class="property">price</span> += <span class="number">10</span>;</span><br><span class="line">  game.<span class="property">value</span>[<span class="number">0</span>].<span class="property">nama</span> = <span class="string">&#x27;蛋仔派对&#x27;</span>;<span class="comment">//注意[0]和.value的位置！！！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ref对比reactive的使用场景"><a href="#ref对比reactive的使用场景" class="headerlink" title="ref对比reactive的使用场景"></a>ref对比reactive的使用场景</h3><p>宏观角度看：</p>
+<blockquote>
+<ol>
+<li><code>ref</code>用来定义：<strong>基本类型数据</strong>、<strong>对象类型数据</strong>；</li>
+<li><code>reactive</code>用来定义：<strong>对象类型数据</strong>。</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>区别：</p>
+<blockquote>
+<ol>
+<li><code>ref</code>创建的变量必须使用<code>.value</code>（可以使用<code>volar</code>插件自动添加<code>.value</code>）。</li>
+<li><code>reactive</code>重新分配一个新对象，会<strong>失去</strong>响应式（可以使用<code>Object.assign</code>去整体替换）。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>使用原则：</p>
+<blockquote>
+<ol>
+<li>若需要一个基本类型的响应式数据，必须使用<code>ref</code>。</li>
+<li>若需要一个响应式对象，层级不深，<code>ref</code>、<code>reactive</code>都可以。</li>
+<li>若需要一个响应式对象，且层级较深，推荐使用<code>reactive</code>。</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> car = <span class="title function_">reactie</span>(&#123;<span class="attr">brand</span>:<span class="string">&#x27;宝马&#x27;</span>,<span class="attr">price</span>:<span class="number">100</span>&#125;)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeCar</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// car = &#123;brand:&#x27;奔驰&#x27;,price:200&#125;//即区别2，失去响应式，页面不更新</span></span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">assign</span>(car,&#123;<span class="attr">brand</span>:<span class="string">&#x27;奔驰&#x27;</span>,<span class="attr">price</span>:<span class="number">200</span>&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref则可以直接整体修改，有.value则必是响应式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> car = <span class="title function_">ref</span>(&#123;<span class="attr">brand</span>:<span class="string">&#x27;宝马&#x27;</span>,<span class="attr">price</span>:<span class="number">100</span>&#125;)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeCar</span>(<span class="params"></span>)&#123;</span><br><span class="line">  car.<span class="property">value</span> = &#123;<span class="attr">brand</span>:<span class="string">&#x27;奔驰&#x27;</span>,<span class="attr">price</span>:<span class="number">200</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时，ref不能越过.value直接更改数据内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum =<span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeSum</span>(<span class="params"></span>)&#123;</span><br><span class="line">  sum = <span class="title function_">ref</span>(<span class="number">9</span>)<span class="comment">//绕过.value错误，不更改</span></span><br><span class="line">  sum.<span class="property">value</span> += <span class="number">1</span><span class="comment">//正确操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="toRefs与toRef"><a href="#toRefs与toRef" class="headerlink" title="toRefs与toRef"></a>toRefs与toRef</h3><p>toRefs 是一个函数，它接受一个响应式对象，将该对象的属性转换为响应式引用（ref），并返回一个新对象。这样可以确保在解构属性时仍然保持它们的响应性。toRef 用于将响应式对象中的单个属性转换为响应式引用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;reactive,toRefs，toRef&#125; <span class="keyword">from</span> vue</span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line"> name = <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line"> age = <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;name , age&#125; = <span class="title function_">toRefs</span>(person)</span><br><span class="line"><span class="comment">//let &#123;name,age&#125; = person 等价于 let name = person.name; let age = person.age，同时将name与person.name相关联，改变name也将改变person.name，age同理</span></span><br><span class="line"><span class="comment">//简化代码，提高可读性</span></span><br><span class="line"><span class="keyword">let</span> nl = <span class="title function_">toRef</span>(person,<span class="string">&#x27;age&#x27;</span>)<span class="comment">//同理，改变nl值，person.age也会变化</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changePerson</span>(<span class="params"></span>)&#123;</span><br><span class="line"> name.<span class="property">value</span> = <span class="string">&#x27;里斯&#x27;</span></span><br><span class="line"> age.<span class="property">value</span> += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="computed计算属性"><a href="#computed计算属性" class="headerlink" title="computed计算属性"></a>computed计算属性</h2><p>computed（计算属性）是用于根据其他数据动态计算的属性。计算属性可以依赖于Vue实例中的某些数据，当这些数据发生变化时，计算属性会自动重新计算。同时，计算属性拥有缓存，当数值没变，多次调用相同结果时，只计算一次，方法不会。<br>计算结果是由ref定义的响应式数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class = &#x27;person&#x27;&gt;</span><br><span class="line">        姓：&lt;input type = &#x27;txt&#x27; v-model=&quot;firstName&quot;&gt;&lt;br&gt;</span><br><span class="line">        名：&lt;input type = &#x27;txt&#x27; v-model=&quot;lastName&quot;&gt;&lt;br&gt;</span><br><span class="line">        全名：&lt;span&gt;&#123;&#123; fullName &#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">        &lt;button @click=&quot;changeFullname&quot;&gt;修改全名为li-si&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup name = &#x27;Person&#x27;&gt;</span><br><span class="line">  import &#123;ref,computed&#125; from &#x27;vue&#x27;</span><br><span class="line">  let firstName = ref(&#x27;zhang&#x27;)</span><br><span class="line">  let lastName = ref(&#x27;san&#x27;)</span><br><span class="line">  //这样定义的计算属性只读，不可修改</span><br><span class="line">//   let fullName = computed(()=&gt;&#123;</span><br><span class="line">//     return firstName.value+&#x27;-&#x27;+lastName.value</span><br><span class="line">//   &#125;)</span><br><span class="line">  //这样定义的计算属性可读可写</span><br><span class="line">  let fullName = computed(&#123;</span><br><span class="line">    get()&#123;</span><br><span class="line">        return firstName.value.slice(0,1).toUpperCase()+firstName.value.slice(1)+&#x27;-&#x27;+lastName.value</span><br><span class="line">    &#125;,</span><br><span class="line">    set(val)&#123;//根据下方修改的函数获取fullName的新值</span><br><span class="line">        let arr = val.split(&#x27;-&#x27;);</span><br><span class="line">        firstName.value = arr[0];</span><br><span class="line">        lastName.value = arr[1];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  function changeFullname()&#123;</span><br><span class="line">    fullName.value = &#x27;li-si&#x27; </span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%953-watch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue3核心语法3_watch
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%951_setup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue3核心语法1_setup</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">响应式数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ref%E5%88%9B%E5%BB%BA-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.</span> <span class="nav-text">ref创建_基本类型的响应式数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reactive%E5%88%9B%E5%BB%BA-%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">reactive创建_对象类型的响应式数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref%E5%88%9B%E5%BB%BA-%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">1.3.</span> <span class="nav-text">ref创建_对象类型的响应式数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref%E5%AF%B9%E6%AF%94reactive%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.4.</span> <span class="nav-text">ref对比reactive的使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toRefs%E4%B8%8EtoRef"><span class="nav-number">1.5.</span> <span class="nav-text">toRefs与toRef</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">computed计算属性</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2024 MTY&#39;s Blog All Rights Reserved.
+      </div>
+     
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

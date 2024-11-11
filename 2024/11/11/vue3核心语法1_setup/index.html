@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MTY&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="vue框架学习笔记第二篇，笔记内容基于B站课程vue3+TypeScript。本篇主要介绍vue3框架与vue2框架API的不同点与核心语法setup()。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3核心语法1_setup">
+<meta property="og:url" content="https://cynthia1379.github.io/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%951_setup/index.html">
+<meta property="og:site_name" content="MTY&#39;s Blog">
+<meta property="og:description" content="vue框架学习笔记第二篇，笔记内容基于B站课程vue3+TypeScript。本篇主要介绍vue3框架与vue2框架API的不同点与核心语法setup()。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-11T14:38:00.000Z">
+<meta property="article:modified_time" content="2024-11-11T16:32:43.996Z">
+<meta property="article:author" content="MTY">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MTY&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="MTY&#39;s Blog" rel="home"> MTY&#39;s Blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-vue3核心语法1_setup" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      vue3核心语法1_setup
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%951_setup/" class="article-date">
+	  <time datetime="2024-11-11T14:38:00.000Z" itemprop="datePublished">十一月 11, 2024</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue框架学习笔记第二篇，笔记内容基于B站课程<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Za4y1r7KE?spm_id_from=333.788.videopod.episodes&vd_source=7e3ba4910e981ea38ba948d2c585f447&p=6">vue3+TypeScript</a>。<br>本篇主要介绍vue3框架与vue2框架API的不同点与核心语法setup()。</p>
+<span id="more"></span>
+<h1 id="OptionsAPI-与-CompositionAPI"><a href="#OptionsAPI-与-CompositionAPI" class="headerlink" title="OptionsAPI 与 CompositionAPI"></a>OptionsAPI 与 CompositionAPI</h1><ul>
+<li>vue2-OptionsAPI式（选项式）：数据、方法、计算属性等是分散在：<code>data</code>、<code>methods</code>、<code>computed</code>中的，若想修改一个需求，则需分别修改<code>data</code>、<code>methods</code>、<code>computed</code>，不便于维护和复用</li>
+<li>vue3-CompositionAPI式（组合式）：通过 setup 函数，您可以自由地组织和复用逻辑，相同逻辑可以使用 composable 函数进行抽离。使用 ref 和 reactive 来创建响应式数据，能更好地控制数据传递和状态管理。</li>
+</ul>
+<h1 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h1><h2 id="setup概述"><a href="#setup概述" class="headerlink" title="setup概述"></a>setup概述</h2><p>在 Vue3 中，setup() 函数是 Composition API 的核心部分，它用于声明组件的逻辑和响应式状态。在 setup() 中，所有的数据和方法都可以直接定义，而不需要再像 Vue2 中那样在不同选项（如 data、methods 等）中分散定义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Person.vue --&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        name:&#x27;Person&#x27;,</span><br><span class="line">        //setup函数中的this是undefined，vue3中已开始弱化this</span><br><span class="line">        setup()&#123;</span><br><span class="line">            //数据</span><br><span class="line">            //注意：此时定义的name/age均非响应式数据，改变不会自动更新到视图</span><br><span class="line">             let name = &#x27;张三&#x27;;</span><br><span class="line">             let age = 18;//如此修改，界面不变，但却是进行了修改</span><br><span class="line">             let tel = 13800001111;</span><br><span class="line">             </span><br><span class="line">             //方法</span><br><span class="line">             function changeName()&#123;</span><br><span class="line">                name = &#x27;李四&#x27;;</span><br><span class="line">             &#125;</span><br><span class="line">             function changeAge()&#123;</span><br><span class="line">                age +=1;</span><br><span class="line">             &#125;</span><br><span class="line">             function showTel()&#123;</span><br><span class="line">                alert(tel)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">             return &#123;name,age&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="setup的返回值"><a href="#setup的返回值" class="headerlink" title="setup的返回值"></a>setup的返回值</h2><p>setup返回值可以是一个函数，直接指定渲染的内容。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setup()&#123;</span><br><span class="line">  &lt;!-- 省略 --&gt;</span><br><span class="line">  return ()=&gt;哈哈  </span><br><span class="line">  &lt;!-- 页面打印哈哈 --&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="setup与OptionsAPI"><a href="#setup与OptionsAPI" class="headerlink" title="setup与OptionsAPI"></a>setup与OptionsAPI</h2><p>二者可以共存，OptionsAPI可以通过this读取setup中的数据，setup()不可以读取data()、methods.</p>
+<h2 id="setup的语法糖"><a href="#setup的语法糖" class="headerlink" title="setup的语法糖"></a>setup的语法糖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        name:&#x27;Person&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;!-- 两个script不能合并 --&gt;</span><br><span class="line">&lt;script setup&gt;//无需return</span><br><span class="line">     let name = &#x27;张三&#x27;;</span><br><span class="line">             let age = 18;</span><br><span class="line">             let tel = 13800001111;</span><br><span class="line">             function changeName()&#123;</span><br><span class="line">                name = &#x27;李四&#x27;;</span><br><span class="line">             &#125;</span><br><span class="line">             function changeAge()&#123;</span><br><span class="line">                age +=1;</span><br><span class="line">             &#125;</span><br><span class="line">             function showTel()&#123;</span><br><span class="line">                alert(tel)</span><br><span class="line">            &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>安装了插件<code>npm i vite-plugin-vue-setup-extend</code>后，可简化组件命名步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup name=&#x27;Person&#x27;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>第一步：<code>npm i vite-plugin-vue-setup-extend -D</code></li>
+<li>第二步：<code>vite.config.ts</code><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueSetupExtend</span> <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-vue-setup-extend&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [ <span class="title class_">VueSetupExtend</span>() ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/11/11/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%952-%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue3核心语法2_响应式数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/11/06/vue3%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue3工程基础知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OptionsAPI-%E4%B8%8E-CompositionAPI"><span class="nav-number">1.</span> <span class="nav-text">OptionsAPI 与 CompositionAPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#setup"><span class="nav-number">2.</span> <span class="nav-text">setup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#setup%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">setup概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setup%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">setup的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setup%E4%B8%8EOptionsAPI"><span class="nav-number">2.3.</span> <span class="nav-text">setup与OptionsAPI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setup%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">2.4.</span> <span class="nav-text">setup的语法糖</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2024 MTY&#39;s Blog All Rights Reserved.
+      </div>
+     
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
