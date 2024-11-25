@@ -6,6 +6,8 @@
   <title>MTY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="vue" />
+  
   
   
   
@@ -17,8 +19,9 @@
 <meta property="og:description" content="vue框架学习笔记第一篇，笔记内容基于B站课程vue3+TypeScript。本篇主要介绍vue3工程创建方式、文件基本构成与尝试简单的组件编写。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-06T15:23:48.000Z">
-<meta property="article:modified_time" content="2024-11-11T16:32:49.416Z">
+<meta property="article:modified_time" content="2024-11-23T05:37:33.882Z">
 <meta property="article:author" content="MTY">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
   <link rel="icon" href="/css/images/favicon.ico">
@@ -140,7 +143,7 @@
 <span id="more"></span>
 <h1 id="vue工程创建"><a href="#vue工程创建" class="headerlink" title="vue工程创建"></a>vue工程创建</h1><h2 id="基于vue-cli创建"><a href="#基于vue-cli创建" class="headerlink" title="基于vue_cli创建"></a>基于vue_cli创建</h2><p>基于webpack构建工具创建，包括React框架。从入口文件进入，先将所有模块分析处理后，开始server ready。</p>
 <h2 id="基于vite创建"><a href="#基于vite创建" class="headerlink" title="基于vite创建"></a>基于vite创建</h2><p>与webpack等价的构建工具，构建速度快于webpack。先server ready，再根据需求分析处理。<br>入口文件：index.html</p>
-<h1 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h1><p>vue.js项目中，src文件通常为存放源代码的主要目录：</p>
+<h1 id="编写组件"><a href="#编写组件" class="headerlink" title="编写组件"></a>编写组件</h1><h2 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h2><h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>vue.js项目中，src文件通常为存放源代码的主要目录：</p>
 <ul>
 <li>.&#x2F;main.js 项目的入口文件，在这里创建vue实例并挂载到页面元素上。</li>
 <li>.&#x2F;App.vue 项目的根组件，通常包含应用的总体结构。</li>
@@ -149,6 +152,11 @@
 <li>router 存放路由配置相关的文件，通常是一个 index.js 文件，负责定义路由规则。</li>
 <li>store 存放 Vuex 状态管理的相关文件。这可以包含 index.js、modules 等，处理状态管理和数据流的逻辑。</li>
 <li>assets 存放项目的静态资源，例如图片、样式文件和字体等。</li>
+</ul>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>包的说明书，scripts中找到启动命令</p>
+<ul>
+<li>vue3启动项目：<code>npm run dev</code></li>
+<li>vue2启动项目：<code>npm run serve</code></li>
 </ul>
 <h2 id="main-ts"><a href="#main-ts" class="headerlink" title="main.ts"></a>main.ts</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.ts初始内容</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./assets/main.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span><span class="comment">//创建应用</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span> <span class="comment">//APP组件为所有组件的根组件</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)<span class="comment">//mount挂载，将此组件摆在id为app的div中</span></span><br></pre></td></tr></table></figure>
 <h2 id="编写App组件"><a href="#编写App组件" class="headerlink" title="编写App组件"></a>编写App组件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//自己编写的App组件</span><br><span class="line">//App.vue的三种标签</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;app&quot;&gt;</span><br><span class="line">        &lt;h1&gt;</span><br><span class="line">             hello,vue!</span><br><span class="line">        &lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;//JS或TS</span><br><span class="line">    export default&#123;</span><br><span class="line">        name : &#x27;App&#x27;//组件名</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;/* 样式 */</span><br><span class="line">    .app&#123;</span><br><span class="line">        background-color: red;</span><br><span class="line">        box-shadow: 0 0 10px;</span><br><span class="line">        border-radius: 10px;//边框圆角效果，参数控制圆弧半径</span><br><span class="line">        padding:20px;//内边距：元素边框与内容之间的空间</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
@@ -166,6 +174,9 @@
     <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
 
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+
       
         
 	<div id="comment">
@@ -225,7 +236,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">vue工程创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Evue-cli%E5%88%9B%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">基于vue_cli创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Evite%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text">基于vite创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">编写组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#main-ts"><span class="nav-number">2.1.</span> <span class="nav-text">main.ts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99App%E7%BB%84%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">编写App组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-number">2.3.</span> <span class="nav-text">组件实现一个简单的效果</span></a></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">vue工程创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Evue-cli%E5%88%9B%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">基于vue_cli创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Evite%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text">基于vite创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">编写组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">2.1.</span> <span class="nav-text">文件说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#src"><span class="nav-number">2.1.1.</span> <span class="nav-text">src</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-number">2.1.2.</span> <span class="nav-text">package.json</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main-ts"><span class="nav-number">2.2.</span> <span class="nav-text">main.ts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99App%E7%BB%84%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">编写App组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-number">2.4.</span> <span class="nav-text">组件实现一个简单的效果</span></a></li></ol></li></ol>
     
     </div>
   </aside>

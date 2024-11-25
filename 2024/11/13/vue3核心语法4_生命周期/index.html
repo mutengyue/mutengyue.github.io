@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MTY&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="vue" />
+  
+  
+  
+  
+  <meta name="description" content="vue框架学习笔记第五篇，笔记内容基于B站课程vue3+TypeScript。本篇内容将简单介绍vue2与vue3生命周期与自定义Hooks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3核心语法4_生命周期与自定义Hooks">
+<meta property="og:url" content="https://cynthia1379.github.io/2024/11/13/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%954_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:site_name" content="MTY&#39;s Blog">
+<meta property="og:description" content="vue框架学习笔记第五篇，笔记内容基于B站课程vue3+TypeScript。本篇内容将简单介绍vue2与vue3生命周期与自定义Hooks">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-13T08:21:03.000Z">
+<meta property="article:modified_time" content="2024-11-25T07:00:30.647Z">
+<meta property="article:author" content="MTY">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="MTY&#39;s Blog" rel="home"> MTY&#39;s Blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/about"> <a class="" href="/about">About</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/atom.xml"> <a class="" href="/atom.xml">rss</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-vue3核心语法4_生命周期" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      vue3核心语法4_生命周期与自定义Hooks
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2024/11/13/vue3%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%954_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="article-date">
+	  <time datetime="2024-11-13T08:21:03.000Z" itemprop="datePublished">十一月 13, 2024</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue框架学习笔记第五篇，笔记内容基于B站课程<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Za4y1r7KE?spm_id_from=333.788.videopod.episodes&vd_source=7e3ba4910e981ea38ba948d2c585f447&p=6">vue3+TypeScript</a>。<br>本篇内容将简单介绍vue2与vue3生命周期与自定义Hooks</p>
+<span id="more"></span>
+<h1 id="对生命周期的理解"><a href="#对生命周期的理解" class="headerlink" title="对生命周期的理解"></a>对生命周期的理解</h1><table>
+<thead>
+<tr>
+<th align="center">时刻</th>
+<th align="center">调用特定的函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">创建</td>
+<td align="center">created()</td>
+</tr>
+<tr>
+<td align="center">挂载</td>
+<td align="center">mounted()</td>
+</tr>
+<tr>
+<td align="center">更新</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">销毁</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h1 id="vue2生命周期"><a href="#vue2生命周期" class="headerlink" title="vue2生命周期"></a>vue2生命周期</h1><p>创建vue2脚手架，并创建vue2工程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue create vue2_test</span><br><span class="line">选择vue2框架</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建：创建前<code>beforeCreate()</code>，创建完毕<code>Created ()</code></li>
+<li>挂载：挂载前<code>beforeMount()</code>，挂载完毕<code>mounted()</code></li>
+<li>更新：更新前<code>beforeUpdate()</code>，更新完毕<code>updated()</code></li>
+<li>销毁：销毁前<code>beforeDestroy()</code>，销毁完毕<code>destroyed()</code><br>&#x3D;&#x3D;&#x3D;&gt;8个关键状态，则拥有至少8个钩子（生命周期函数）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">   <span class="comment">/* eslint-disable */</span></span><br><span class="line">   <span class="comment">//关闭后文语法检查，防止因组件名称为单个单词而报错</span></span><br><span class="line">   <span class="attr">name</span>:<span class="string">&#x27;Person&#x27;</span>,</span><br><span class="line">   <span class="title function_">data</span>(<span class="params"></span>)&#123;</span><br><span class="line">   &#125;,<span class="comment">//数据</span></span><br><span class="line">   <span class="attr">method</span>:&#123;</span><br><span class="line">   &#125;,<span class="comment">//方法</span></span><br><span class="line">   <span class="comment">//创建完毕的钩子</span></span><br><span class="line">   <span class="title function_">created</span>(<span class="params"></span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建完毕&#x27;</span>)</span><br><span class="line">   &#125;,<span class="comment">//组件创建完毕后，自动调用此函数</span></span><br><span class="line">   <span class="comment">//创建前的钩子</span></span><br><span class="line">   <span class="title function_">beforeCreate</span>(<span class="params"></span>)&#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建前&#x27;</span>)</span><br><span class="line">       <span class="keyword">debugger</span>;<span class="comment">//通过创建断点，阻止组件之后活动</span></span><br><span class="line">   &#125;,<span class="comment">//组件创建前，自动调用此函数</span></span><br><span class="line"></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="vue3生命周期"><a href="#vue3生命周期" class="headerlink" title="vue3生命周期"></a>vue3生命周期</h1><ul>
+<li>创建：setup函数内即相当于创建过程，不区分创建前后</li>
+<li>挂载：挂载前<code>onBeforeMount()</code>，挂载完毕<code>onMounted()</code>，需在使用前引入，自动调用部分为在括号内补充的回调函数</li>
+<li>更新：更新前<code>onBeforeUpdate()</code>，更新完毕<code>onUpdated()</code></li>
+<li>卸载：卸载前<code>onBeforeUnmount()</code>，卸载完毕<code>onUnmounted()</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup name=<span class="string">&#x27;Person&#x27;</span>&gt;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;创建&#x27;</span>)</span><br><span class="line">    <span class="title function_">onBeforeMount</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;挂载前&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+常用钩子：挂载完毕、更新完毕、卸载之前</li>
+</ul>
+<h1 id="vue3父子组件间生命周期进程"><a href="#vue3父子组件间生命周期进程" class="headerlink" title="vue3父子组件间生命周期进程"></a>vue3父子组件间生命周期进程</h1><p>子先执行，所有子组件均挂载完毕后，父组件才会挂载完毕</p>
+<h1 id="自定义Hooks"><a href="#自定义Hooks" class="headerlink" title="自定义Hooks"></a>自定义Hooks</h1><p>为组织与复用逻辑，基本hooks包含<code>ref</code>，<code>reactive</code>，<code>computed</code>，<code>watch</code>。<br>且在hooks中可以写生命周期函数 </p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/vue%E6%A1%86%E6%9E%B6/">vue框架</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/11/13/vue3_%E8%B7%AF%E7%94%B1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          路由
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/11/13/vue3_%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">组件间通信</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">对生命周期的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue2%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.</span> <span class="nav-text">vue2生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">3.</span> <span class="nav-text">vue3生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%97%B4%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">vue3父子组件间生命周期进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Hooks"><span class="nav-number">5.</span> <span class="nav-text">自定义Hooks</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/atom.xml" class="mobile-nav-link">rss</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2024 MTY&#39;s Blog All Rights Reserved.
+      </div>
+     
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
