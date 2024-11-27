@@ -432,10 +432,13 @@ body {
   font-weight: 300;
   text-transform: uppercase;
 }
-.article-meta span:before {
+span.no-slash:before {
+  content: "";
+}
+span.has-slash:before {
+  content: "/";
   margin: 0 0 0 8px;
   padding: 0 6px 0 0;
-  content: "/";
   color: #d6d6d6;
 }
 .article-date {
